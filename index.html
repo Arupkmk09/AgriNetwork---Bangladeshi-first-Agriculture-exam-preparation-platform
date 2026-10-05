@@ -1,0 +1,2316 @@
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agri Network | বাংলাদেশের ১ম পূর্ণাঙ্গ কৃষি পরীক্ষা প্রস্তুতি ও মক টেস্ট প্ল্যাটফর্ম</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Hind Siliguri & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Canvas Confetti for high-score celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Hind Siliguri"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#0f391b',
+              950: '#05220e',
+            },
+            amberBrand: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          },
+          boxShadow: {
+            'glow-sm': '0 0 20px -3px rgba(22, 163, 74, 0.25)',
+            'glow-lg': '0 0 45px -5px rgba(22, 163, 74, 0.35)',
+            'card': '0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.03)',
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+            'pulse-soft': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .font-eng {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #16a34a;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #15803d;
+    }
+    .glass-nav {
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    .grid-pattern {
+      background-size: 28px 28px;
+      background-image: 
+        linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+    }
+    .radial-bg {
+      background: radial-gradient(circle at 50% 10%, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
+    }
+    .badge-pulse {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: badgePulse 2s infinite;
+    }
+    @keyframes badgePulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8FAF7] text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Top Announcement Bar (Live Auto Update Ticker) -->
+  <aside class="bg-brand-950 text-emerald-200 border-b border-brand-900/60 text-xs py-2 overflow-hidden relative z-50">
+    <div class="flex items-center">
+      <div class="bg-brand-600 text-white font-bold px-3 py-1 text-[11px] rounded-r-md uppercase tracking-wider shrink-0 z-10 flex items-center gap-1.5 shadow">
+        <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+        <span>লাইভ অটো-আপডেট</span>
+      </div>
+      <div class="overflow-hidden w-full whitespace-nowrap">
+        <div class="inline-flex marquee gap-12 font-medium tracking-wide">
+          <span>✨ <strong class="text-white">আজকের সংযোজন:</strong> কৃষি সম্প্রসারণ অধিদপ্তর (DAE) ও বিসিএস পরীক্ষার ৫২টি নতুন MCQ লাইভ হয়েছে!</span>
+          <span>⚡ <strong class="text-amberBrand-400">নেগেটিভ মার্কিং:</strong> প্রতি ভুলে ০.২৫ মার্ক কর্তন সহ বাস্তব পরীক্ষার ইন্টারফেস।</span>
+          <span>📚 <strong class="text-white">বই ও হ্যান্ডনোট:</strong> ১২০+ রেফারেন্স বই থেকে সংকলিত ব্যাখ্যা যুক্ত হয়েছে।</span>
+          <span>🏆 <strong class="text-amberBrand-400">মডেল টেস্ট চলছে:</strong> অংশ নিচ্ছে ৩,৮৪০+ পরীক্ষার্থী। আপনি কততম?</span>
+          <span>✨ <strong class="text-white">আজকের সংযোজন:</strong> কৃষি সম্প্রসারণ অধিদপ্তর (DAE) ও বিসিএস পরীক্ষার ৫২টি নতুন MCQ লাইভ হয়েছে!</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#home" class="flex items-center gap-3.5 group">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-700 via-brand-600 to-emerald-400 p-0.5 shadow-glow-sm group-hover:scale-105 transition-transform duration-300">
+            <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-brand-600 text-2xl font-black">
+              <i class="fa-solid fa-leaf text-brand-600"></i>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-eng font-black text-2xl tracking-tight text-slate-900">Agri<span class="text-brand-600">Network</span></span>
+              <span class="bg-amberBrand-500/10 text-amber-700 text-[10px] font-bold px-1.5 py-0.5 rounded border border-amberBrand-500/20 font-eng">PRO</span>
+            </div>
+            <p class="text-[11px] font-semibold text-slate-500 -mt-0.5 tracking-wider">বাংলাদেশের ১ম কৃষি পরীক্ষা প্রস্তুতি প্ল্যাটফর্ম</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">
+          <a href="#home" class="px-4 py-2 rounded-xl hover:text-brand-700 hover:bg-brand-50 transition">হোম</a>
+          <a href="#exam-section" class="px-4 py-2 rounded-xl hover:text-brand-700 hover:bg-brand-50 transition flex items-center gap-1.5">
+            <span>মডেল টেস্ট</span>
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          </a>
+          <a href="#question-bank" class="px-4 py-2 rounded-xl hover:text-brand-700 hover:bg-brand-50 transition">প্রশ্ন ব্যাংক (৫,০০০+)</a>
+          <a href="#library" class="px-4 py-2 rounded-xl hover:text-brand-700 hover:bg-brand-50 transition">বই ও নোট</a>
+          <a href="#mock-viva" class="px-4 py-2 rounded-xl hover:text-brand-700 hover:bg-brand-50 transition">মক ভাইভা</a>
+          <a href="#mistake-notebook" class="px-4 py-2 rounded-xl hover:text-brand-700 hover:bg-brand-50 transition text-amber-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-book-bookmark text-xs"></i>
+            <span>আমার ভুল খাতা</span>
+            <span id="mistakeBadgeCount" class="bg-red-500 text-white text-[10px] px-1.5 py-0.2 rounded-full hidden">0</span>
+          </a>
+        </nav>
+
+        <!-- Right Action Buttons -->
+        <div class="flex items-center gap-3">
+          <button onclick="scrollToExam()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-bold text-white rounded-full group bg-gradient-to-br from-brand-600 to-emerald-500 group-hover:from-brand-600 group-hover:to-teal-500 shadow-md hover:shadow-glow-sm transition active:scale-95">
+            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-brand-600 rounded-full group-hover:bg-opacity-0 flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-amber-300"></i>
+              <span>পরীক্ষা শুরু করুন</span>
+            </span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="মেনু খুলুন">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 py-4 space-y-2">
+      <a href="#home" class="block px-3 py-2 rounded-lg font-bold text-slate-700 hover:bg-brand-50">হোম</a>
+      <a href="#exam-section" class="block px-3 py-2 rounded-lg font-bold text-slate-700 hover:bg-brand-50">মডেল টেস্ট (লাইভ)</a>
+      <a href="#question-bank" class="block px-3 py-2 rounded-lg font-bold text-slate-700 hover:bg-brand-50">প্রশ্ন ব্যাংক (৫,০০০+ MCQ)</a>
+      <a href="#library" class="block px-3 py-2 rounded-lg font-bold text-slate-700 hover:bg-brand-50">ডিজিটাল বুক লাইব্রেরি</a>
+      <a href="#mock-viva" class="block px-3 py-2 rounded-lg font-bold text-slate-700 hover:bg-brand-50">মক ভাইভা ও ইন্টারভিউ</a>
+      <a href="#mistake-notebook" class="block px-3 py-2 rounded-lg font-bold text-amber-700 bg-amber-50">আমার ভুল খাতা (ভুলের বিশদ)</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 grid-pattern radial-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Hero Left Column -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-sm">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+            </span>
+            <span>স্বয়ংক্রিয় আপডেট প্রশ্নব্যাংক • ৫,০০০+ কৃষি MCQ</span>
+            <span class="bg-emerald-600 text-white text-[10px] px-2 py-0.5 rounded-full">২০২৫ এডিশন</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.18] tracking-tight">
+            কৃষি চাকরির স্বপ্নপূরণে<br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-emerald-500">নেগেটিভ মার্কিং সহ</span><br />
+            দেশের সেরা পূর্ণাঙ্গ প্রস্তুতি!
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+            সরকারি ও বেসরকারি কৃষি পরীক্ষার (বিসিএস, DAE, কৃষি ব্যাংক, BARI, BRRI) বাস্তব আদলে পরীক্ষা দিন। পরীক্ষা শেষে সাথে সাথে জেনে নিন <span class="text-brand-700 font-bold underline decoration-brand-400 decoration-2">সঠিক ও ভুল উত্তরের বিস্তারিত রেফারেন্স ব্যাখ্যা</span>।
+          </p>
+
+          <!-- Core Feature Badges -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 text-xs sm:text-sm font-semibold">
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 shadow-sm">
+              <i class="fa-solid fa-circle-check text-brand-600"></i>
+              <span>ইনস্ট্যান্ট রেজাল্ট</span>
+            </div>
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 shadow-sm">
+              <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+              <span>নেগেটিভ মার্কিং (-০.২৫)</span>
+            </div>
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 shadow-sm">
+              <i class="fa-solid fa-book-open-reader text-indigo-600"></i>
+              <span>বিভিন্ন প্রামাণ্য বইয়ের প্রশ্ন</span>
+            </div>
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 shadow-sm">
+              <i class="fa-solid fa-lightbulb text-yellow-500"></i>
+              <span>ভুলের বিশদ ব্যাখ্যা</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+            <button onclick="scrollToExam()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-glow-sm hover:shadow-glow-lg transition duration-200 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-play"></i>
+              <span>ফ্রি মক টেস্ট শুরু করুন</span>
+            </button>
+            <a href="#question-bank" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-base border border-slate-300 shadow-sm transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-database text-brand-600"></i>
+              <span>প্রশ্ন ব্যাংক ব্রাউজ করুন</span>
+            </a>
+          </div>
+
+          <!-- Social Proof / Stats Counter Strip -->
+          <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+            <div>
+              <p class="text-2xl sm:text-3xl font-black text-slate-900 font-eng">৫,২৪০+</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-500">যাচাইকৃত কৃষি MCQ</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-black text-brand-600 font-eng">৯৮.৬%</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-500">নির্ভুল উত্তর ও ব্যাখ্যা</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-black text-slate-900 font-eng">১২,৮৫০+</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-500">পরীক্ষার্থীর আস্থা</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Right Column: Live Mock Card Showcase -->
+        <div class="lg:col-span-5">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Glow background decoration -->
+            <div class="absolute -top-6 -right-6 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-6 -left-6 w-64 h-64 bg-brand-500/20 rounded-full blur-3xl"></div>
+
+            <!-- Card Shell -->
+            <div class="relative bg-white rounded-3xl p-6 sm:p-7 shadow-card border border-slate-200/90 overflow-hidden">
+              
+              <!-- Card Header -->
+              <div class="flex items-center justify-between pb-5 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-700 font-bold">
+                    <i class="fa-solid fa-feather text-lg"></i>
+                  </div>
+                  <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-2 py-0.5 rounded">লাইভ সিমুলেটর</span>
+                    <h2 class="text-base font-bold text-slate-900">কৃষি ক্যাডার ও DAE স্পেশাল</h2>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="inline-flex items-center gap-1 text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span> লাইভ টেস্ট
+                  </span>
+                </div>
+              </div>
+
+              <!-- Interactive mini sample preview -->
+              <div class="py-5 space-y-4">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                  <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+                    <span class="text-brand-700">নমুনা প্রশ্ন #১ • শস্য বিজ্ঞান</span>
+                    <span class="text-amber-600"><i class="fa-solid fa-clock"></i> ৩০ মিনিট</span>
+                  </div>
+                  <p class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                    বাংলাদেশে উদ্ভাবিত প্রথম জিংক সমৃদ্ধ উচ্চফলনশীল ধানের জাত কোনটি?
+                  </p>
+                </div>
+
+                <!-- Mock Options -->
+                <div class="space-y-2 text-xs sm:text-sm font-semibold">
+                  <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-white hover:border-slate-300">
+                    <span>(ক) ব্রি ধান২৮</span>
+                    <span class="w-4 h-4 rounded-full border border-slate-300"></span>
+                  </div>
+                  <div class="flex items-center justify-between p-3 rounded-xl border-2 border-brand-500 bg-brand-50/70 text-brand-900 font-bold">
+                    <span class="flex items-center gap-2">
+                      <span>(খ) ব্রি ধান৬২</span>
+                      <span class="text-[10px] bg-brand-600 text-white px-1.5 py-0.5 rounded">সঠিক উত্তর</span>
+                    </span>
+                    <i class="fa-solid fa-check text-brand-600"></i>
+                  </div>
+                  <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-white text-slate-600">
+                    <span>(গ) বিনা ধান৭</span>
+                    <span class="w-4 h-4 rounded-full border border-slate-300"></span>
+                  </div>
+                </div>
+
+                <!-- Live Explanation Peek -->
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+                  <div class="flex items-center gap-1 font-bold text-amber-800">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>স্বয়ংক্রিয় ব্যাখ্যা প্রিভিউ:</span>
+                  </div>
+                  <p class="leading-relaxed">
+                    ২০১৩ সালে ব্রি ধান৬২ বিশ্বের প্রথম জিংক সমৃদ্ধ ধানের জাত হিসেবে বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) অবমুক্ত করে। এতে জিংকের মাত্রা ১৯ মিলিগ্রাম/কেজি। (রেফারেন্স: BRRI ফসল ডাইজেস্ট, পৃ-৪২)
+                  </p>
+                </div>
+              </div>
+
+              <!-- Action Bar -->
+              <div class="pt-2">
+                <button onclick="scrollToExam()" class="w-full py-3 bg-slate-900 hover:bg-black text-white text-sm font-bold rounded-xl shadow transition flex items-center justify-center gap-2">
+                  <span>এমন ২০টি প্রশ্ন দিয়ে পূর্ণাঙ্গ টেস্ট দিন</span>
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Auto-Update Notification Banner -->
+  <section class="bg-gradient-to-r from-brand-700 via-emerald-700 to-teal-800 text-white py-4 shadow-inner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-amber-300 text-lg">
+          <i class="fa-solid fa-arrows-rotate animate-spin" style="animation-duration: 8s;"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm">স্বয়ংক্রিয় ক্লাউড আপডেট প্রশ্নব্যাংক চালু রয়েছে</h4>
+          <p class="text-xs text-emerald-100">সরকারি গেজেট, কৃষি বিশ্ববিদ্যালয় ভর্তি এবং নতুন চাকরির সার্কুলার অনুযায়ী প্রশ্ন প্রতিদিন সংযোজন করা হয়।</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/20 border border-white/20">সর্বশেষ আপডেট: আজ ভোর ৬:০০ টা</span>
+        <button onclick="triggerAutoRefresh()" class="text-xs font-bold bg-white text-brand-900 px-3 py-1 rounded-full hover:bg-emerald-50 transition shadow">
+          <i class="fa-solid fa-sync text-brand-600 mr-1"></i> রিফ্রেশ
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid: Why Agri Network? -->
+  <section class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-brand-700 font-bold text-xs uppercase tracking-widest bg-brand-50 border border-brand-200 px-3 py-1 rounded-full">স্মার্ট প্রস্তুতি ফিচারস</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900">
+          বাংলাদেশের কৃষিক্ষেত্রে চাকরির সেরা প্রস্তুতি প্ল্যাটফর্ম
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium">
+          শুধু মুখস্থ নয়, নিখুঁত অ্যানালিটিক্স এবং ভুল বিশ্লেষণের মাধ্যমে আপনার আত্মবিশ্বাস বাড়িয়ে তুলুন।
+        </p>
+      </div>
+
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Feature 1 -->
+        <div class="p-6 rounded-2xl bg-[#FBFDFB] border border-slate-200 hover:border-brand-500/50 hover:shadow-card transition duration-200 group">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">নেগেটিভ মার্কিং হিসাব</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            প্রতিটি ভুল উত্তরে ০.২৫ মার্ক স্বয়ংক্রিয় কাটা যাবে। পিএসসি ও ব্যাংকের আসল পরীক্ষার মতো নির্ভুল নেট স্কোর জানুন।
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-6 rounded-2xl bg-[#FBFDFB] border border-slate-200 hover:border-brand-500/50 hover:shadow-card transition duration-200 group">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">ভুল প্রশ্নের বিশদ ময়নাতদন্ত</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            কোন প্রশ্ন কেন ভুল হলো, সঠিক উত্তর কি এবং বইয়ের রেফারেন্স সহ বিশদ ব্যাখ্যা পরীক্ষা শেষেই চোখের সামনে উন্মুক্ত হবে।
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-6 rounded-2xl bg-[#FBFDFB] border border-slate-200 hover:border-brand-500/50 hover:shadow-card transition duration-200 group">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">৫,০০০+ ক্যাটাগরাইজড প্রশ্ন</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            কৃষি বিসিএস, উপ-সহকারী কৃষি কর্মকর্তা (DAE), কৃষি ব্যাংক, BARI, BRRI, বীজ প্রত্যয়ন এজেন্সির বিগত ও সম্ভাব্য প্রশ্ন।
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="p-6 rounded-2xl bg-[#FBFDFB] border border-slate-200 hover:border-brand-500/50 hover:shadow-card transition duration-200 group">
+          <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+            <i class="fa-solid fa-book-bookmark"></i>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-2">ডিজিটাল ভুল খাতা</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            যে প্রশ্নগুলোতে আপনি ভুল করেছেন তা এক ক্লিকে "ভুল খাতায়" জমা করে পরীক্ষার আগের রাতে দ্রুত রিভিশন দিতে পারবেন।
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MAIN EXAM ENGINE SECTION (CORE REQUIREMENT)
+  ======================================================== -->
+  <section id="exam-section" class="py-14 bg-[#F2F6F1] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-bold mb-2">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>রিয়েল-টাইম এক্সাম পোর্টাল</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900">
+            লাইভ মডেল টেস্ট ও প্র্যাকটিস রুম
+          </h2>
+          <p class="text-slate-600 text-sm font-medium">
+            পরীক্ষা সিলেক্ট করুন, প্রশ্ন সেট সমাধান করুন এবং সাথে সাথে নেগেটিভ মার্কিং সহ বিস্তারিত রেজাল্ট দেখুন।
+          </p>
+        </div>
+
+        <!-- Live Status Indicators -->
+        <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
+          <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm text-slate-700">
+            <i class="fa-solid fa-circle-check text-brand-600 mr-1"></i> প্রতি প্রশ্নে ১ মার্ক
+          </span>
+          <span class="px-3 py-1.5 bg-amber-50 border border-amber-300 rounded-xl shadow-sm text-amber-800">
+            <i class="fa-solid fa-circle-minus text-red-500 mr-1"></i> ভুল উত্তরে -০.২৫ কাটা
+          </span>
+          <span class="px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-sm text-slate-700">
+            <i class="fa-solid fa-rotate text-indigo-600 mr-1"></i> অটো সমাধান বিশ্লেষণ
+          </span>
+        </div>
+      </div>
+
+      <!-- Exam Workspace Grid -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Sidebar: Configuration & Exam Selector -->
+        <div class="lg:col-span-4 space-y-5">
+          
+          <!-- Exam Selection Box -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-card space-y-4">
+            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
+              <span>পরীক্ষার ধরণ নির্বাচন করুন</span>
+              <span class="text-xs text-brand-700 font-semibold bg-brand-50 px-2 py-0.5 rounded">৪টি মডেল প্রস্তুত</span>
+            </h3>
+
+            <!-- Options Radio Styled Buttons -->
+            <div class="space-y-2.5" id="examTypeSelector">
+              <button onclick="setExamCategory('bcs')" data-cat="bcs" class="exam-cat-btn w-full p-3.5 rounded-2xl border-2 border-brand-600 bg-brand-50/80 text-left transition flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-slate-900 text-sm">কৃষি বিসিএস স্পেশাল মডেল</p>
+                  <p class="text-xs text-slate-500">শস্য, মৃত্তিকা, বালাই ও কৃষি নীতি</p>
+                </div>
+                <i class="fa-solid fa-circle-dot text-brand-600 text-lg"></i>
+              </button>
+
+              <button onclick="setExamCategory('dae')" data-cat="dae" class="exam-cat-btn w-full p-3.5 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-slate-900 text-sm">DAE উপ-সহকারী কৃষি কর্মকর্তা</p>
+                  <p class="text-xs text-slate-500">মাঠ ফসল, বীজ সংরক্ষণ ও সম্প্রসারণ</p>
+                </div>
+                <i class="fa-regular fa-circle text-slate-300 text-lg"></i>
+              </button>
+
+              <button onclick="setExamCategory('bank')" data-cat="bank" class="exam-cat-btn w-full p-3.5 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-slate-900 text-sm">কৃষি ব্যাংক ও বিশেষায়িত ব্যাংক</p>
+                  <p class="text-xs text-slate-500">কৃষি ঋণ, অর্থনীতি ও সাধারণ জ্ঞান</p>
+                </div>
+                <i class="fa-regular fa-circle text-slate-300 text-lg"></i>
+              </button>
+
+              <button onclick="setExamCategory('research')" data-cat="research" class="exam-cat-btn w-full p-3.5 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-slate-900 text-sm">BARI / BRRI গবেষণা সহকারী</p>
+                  <p class="text-xs text-slate-500">উদ্ভিদ প্রজনন, কীটতত্ত্ব ও প্রযুক্তি</p>
+                </div>
+                <i class="fa-regular fa-circle text-slate-300 text-lg"></i>
+              </button>
+            </div>
+
+            <!-- Exam Settings -->
+            <div class="pt-3 border-t border-slate-100 space-y-3">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                <span>প্রশ্ন সংখ্যা নির্বাচন:</span>
+                <span class="text-brand-700 font-extrabold" id="selectedQuestionCountLabel">১০টি প্রশ্ন (কুইক টেস্ট)</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                <button onclick="setQuestionLimit(10)" id="limitBtn10" class="py-2 rounded-xl bg-brand-600 text-white transition">১০টি প্রশ্ন</button>
+                <button onclick="setQuestionLimit(20)" id="limitBtn20" class="py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">২০টি প্রশ্ন (ফুল)</button>
+              </div>
+
+              <!-- Negative Marking Notice Switch -->
+              <div class="flex items-center justify-between bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs">
+                <div class="space-y-0.5">
+                  <span class="font-bold text-amber-900 block">নেগেটিভ মার্কিং সক্রিয়</span>
+                  <span class="text-amber-700 text-[11px] block">ভুল উত্তরের জন্য -০.২৫ কাটা যাবে</span>
+                </div>
+                <span class="bg-amber-600 text-white font-bold px-2 py-0.5 rounded text-[11px] font-eng">-0.25</span>
+              </div>
+            </div>
+
+            <!-- Start Button -->
+            <button id="examActionBtn" onclick="initiateExam()" class="w-full py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 active:scale-98 text-white font-black text-base shadow-glow-sm hover:shadow-glow-lg transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-play"></i>
+              <span>পরীক্ষা শুরু করুন</span>
+            </button>
+          </div>
+
+          <!-- Question Palette Box (Active during exam) -->
+          <div id="paletteContainer" class="bg-white rounded-3xl p-5 border border-slate-200 shadow-card space-y-3 hidden">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-table-cells text-brand-600"></i>
+                <span>প্রশ্ন নেভিগেটর</span>
+              </h4>
+              <span id="answeredCounter" class="text-xs font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded">০ উত্তরিত</span>
+            </div>
+
+            <div id="questionPaletteGrid" class="grid grid-cols-5 gap-2 pt-2">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500">
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-brand-600"></span> উত্তরিত</span>
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-amber-400"></span> রিভিউ</span>
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-slate-200"></span> স্কিপ</span>
+            </div>
+          </div>
+
+          <!-- Quick Tip Card -->
+          <div class="bg-gradient-to-br from-slate-900 to-brand-950 text-white rounded-3xl p-5 shadow-card space-y-2">
+            <div class="flex items-center gap-2 text-amberBrand-400 text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>সফলতার টিপস</span>
+            </div>
+            <h4 class="font-bold text-sm text-slate-100">নেগেটিভ মার্কিং এড়ানোর কৌশল</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-normal">
+              যে প্রশ্নে ৫০% এর কম নিশ্চিত, তা স্কিপ করা বুদ্ধিমানের কাজ। Agri Network এ প্রতি টেস্ট শেষে দুর্বল বিষয়গুলোর নোট রাখুন।
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right Main Panel: Pre-test Screen / Active Quiz / Post-test Result Analysis -->
+        <div class="lg:col-span-8">
+          
+          <!-- STATE 1: PRE-TEST WELCOME BANNER -->
+          <div id="preTestScreen" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-card space-y-6">
+            <div class="w-16 h-16 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center text-3xl shadow-sm">
+              <i class="fa-solid fa-clipboard-question"></i>
+            </div>
+            
+            <div class="space-y-2">
+              <span class="text-xs font-bold text-brand-700 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">স্বাগতম পরীক্ষার্থী</span>
+              <h3 class="text-2xl sm:text-3xl font-black text-slate-900">
+                কৃষি পরীক্ষার সেরা অনুশীলনে আপনাকে স্বাগতম!
+              </h3>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                এখানে আপনি পাচ্ছেন সরকারি ও বেসরকারি কৃষি নিয়োগ পরীক্ষার মানসম্পন্ন প্রশ্ন। পরীক্ষা শুরু বাটনে চাপ দেওয়ার সাথে সাথে টাইমার শুরু হবে। পরীক্ষা শেষ করার পর প্রতি প্রশ্নের <strong>সঠিক উত্তর, আপনার উত্তর, এবং বইয়ের প্রামাণ্য ব্যাখ্যা</strong> দেখতে পাবেন।
+              </p>
+            </div>
+
+            <!-- Rules Grid -->
+            <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm font-semibold">
+              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                <span class="w-7 h-7 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0">১</span>
+                <span>প্রতিটি সঠিক উত্তরে <strong class="text-brand-700">+১.০০</strong> মার্ক যোগ হবে।</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 flex items-center gap-3 text-amber-900">
+                <span class="w-7 h-7 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0">২</span>
+                <span>প্রতিটি ভুল উত্তরে <strong class="text-red-600">-০.২৫</strong> মার্ক কাটা যাবে।</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                <span class="w-7 h-7 rounded-xl bg-slate-800 text-white flex items-center justify-center shrink-0">৩</span>
+                <span>স্কিপ বা উত্তর না দেওয়া প্রশ্নের কোনো মার্ক কাটা যাবে না।</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                <span class="w-7 h-7 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0">৪</span>
+                <span>পরীক্ষা শেষে ভুল উত্তরের পূর্ণাঙ্গ ব্যাখ্যা উন্মুক্ত হবে।</span>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+              <button onclick="initiateExam()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-black text-base shadow-glow-sm hover:shadow-glow-lg transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-play"></i>
+                <span>এখনই পরীক্ষা দিন (ফ্রি)</span>
+              </button>
+              <span class="text-xs text-slate-500 font-semibold">কোনো রেজিস্ট্রেশন ফি প্রয়োজন নেই</span>
+            </div>
+          </div>
+
+          <!-- STATE 2: ACTIVE QUIZ WORKBENCH (Hidden by default) -->
+          <div id="activeQuizScreen" class="bg-white rounded-3xl border border-slate-200 shadow-card overflow-hidden hidden">
+            
+            <!-- Quiz Control Top Bar -->
+            <div class="bg-slate-900 text-white p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <span id="activeQuestionBadge" class="bg-brand-600 text-white text-xs font-black px-3 py-1.5 rounded-xl">প্রশ্ন ১ / ১০</span>
+                <span id="activeExamLabel" class="text-xs text-slate-300 font-bold hidden sm:inline">কৃষি বিসিএস স্পেশাল</span>
+              </div>
+
+              <!-- Live Timer & Flag -->
+              <div class="flex items-center gap-3">
+                <button onclick="toggleFlagCurrentQuestion()" id="flagCurrentBtn" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold flex items-center gap-1.5 transition">
+                  <i class="fa-regular fa-flag text-amber-300"></i>
+                  <span id="flagBtnText">রিভিউ ফ্ল্যাগ</span>
+                </button>
+
+                <div class="flex items-center gap-2 bg-red-600/90 text-white px-3.5 py-1.5 rounded-xl font-eng font-black text-sm tracking-wider">
+                  <i class="fa-solid fa-stopwatch animate-pulse"></i>
+                  <span id="examTimerDisplay">15:00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress Meter -->
+            <div class="w-full bg-slate-100 h-1.5">
+              <div id="quizProgressBar" class="bg-gradient-to-r from-brand-600 to-emerald-400 h-1.5 transition-all duration-300" style="width: 10%;"></div>
+            </div>
+
+            <!-- Question Body -->
+            <div class="p-6 sm:p-8 space-y-6">
+              
+              <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs text-slate-500 font-bold">
+                  <span id="questionTopicTag" class="text-brand-700 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded-full">শস্য বিজ্ঞান</span>
+                  <span class="text-slate-400">মান: ১.০০ | নেগেটিভ: ০.২৫</span>
+                </div>
+                <h3 id="currentQuestionText" class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                  প্রশ্ন লোড হচ্ছে...
+                </h3>
+              </div>
+
+              <!-- Options Container -->
+              <div id="optionsList" class="space-y-3">
+                <!-- Injected by JavaScript -->
+              </div>
+
+              <!-- Quiz Navigation Buttons -->
+              <div class="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                <button onclick="prevQuestion()" id="prevQBtn" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-sm transition flex items-center gap-1.5">
+                  <i class="fa-solid fa-chevron-left text-xs"></i>
+                  <span>আগের প্রশ্ন</span>
+                </button>
+
+                <div class="flex items-center gap-2">
+                  <button onclick="skipQuestion()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition">
+                    স্কিপ করুন
+                  </button>
+                  <button onclick="nextQuestion()" id="nextQBtn" class="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-sm transition flex items-center gap-1.5">
+                    <span>পরের প্রশ্ন</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                  </button>
+                  <button onclick="confirmSubmitExam()" id="submitExamBtn" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-black text-sm shadow transition hidden">
+                    পরীক্ষা শেষ করুন
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Exam bottom helper -->
+            <div class="bg-slate-50 px-6 py-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-semibold">
+              <span>যেকোনো সময় ডানদিকের প্যালেট থেকে প্রশ্ন জাম্প করতে পারবেন</span>
+              <button onclick="confirmSubmitExam()" class="text-brand-700 hover:underline font-bold">এখনই সাবমিট করতে চান?</button>
+            </div>
+
+          </div>
+
+          <!-- ========================================================
+               STATE 3: POST-TEST RESULT & MISTAKE ANALYSIS (KEY REQUIREMENT)
+               Users know which are correct, which are wrong, and view explanations
+          ======================================================== -->
+          <div id="resultScreen" class="bg-white rounded-3xl border border-slate-200 shadow-card overflow-hidden hidden space-y-6">
+            
+            <!-- Result Hero Ribbon -->
+            <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-emerald-900 text-white p-6 sm:p-8 relative overflow-hidden">
+              <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-emerald-500/20 rounded-full blur-2xl"></div>
+              
+              <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="space-y-1">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-bold">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>পরীক্ষা ফলাফল ও কর্মক্ষমতা বিশ্লেষণ</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white" id="resultStatusHeading">
+                    অভিনন্দন! আপনার ফলাফল প্রস্তুত
+                  </h3>
+                  <p class="text-slate-300 text-xs sm:text-sm">
+                    নিচে নেগেটিভ মার্কিং সহ বিস্তারিত স্কোর এবং ভুল প্রশ্নের বিশদ ব্যাখ্যা দেওয়া হলো।
+                  </p>
+                </div>
+
+                <!-- Final Net Score Badge -->
+                <div class="bg-white text-slate-900 rounded-3xl p-5 text-center min-w-[150px] shadow-2xl border-4 border-emerald-400/40">
+                  <p class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">চূড়ান্ত নেট স্কোর</p>
+                  <p class="text-3xl sm:text-4xl font-black text-brand-700 font-eng" id="finalNetScore">0.00</p>
+                  <p class="text-xs font-bold text-slate-600 mt-0.5" id="finalTotalScoreBase">মোট ১০ এর মধ্যে</p>
+                  <div id="accuracyBadge" class="mt-2 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                    শতকরা: 0%
+                  </div>
+                </div>
+              </div>
+
+              <!-- Breakdown 4-Stat Box -->
+              <div class="mt-6 pt-6 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                <div class="bg-white/10 rounded-2xl p-3 backdrop-blur-sm">
+                  <p class="text-2xl font-black text-emerald-300 font-eng" id="statCorrectCount">0</p>
+                  <p class="text-xs font-bold text-white/90">সঠিক উত্তর (+১.০০)</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 backdrop-blur-sm">
+                  <p class="text-2xl font-black text-red-300 font-eng" id="statWrongCount">0</p>
+                  <p class="text-xs font-bold text-white/90">ভুল উত্তর (-০.২৫)</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 backdrop-blur-sm">
+                  <p class="text-2xl font-black text-amber-300 font-eng" id="statNegativeDeduction">0.00</p>
+                  <p class="text-xs font-bold text-white/90">নেগেটিভ কর্তন</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 backdrop-blur-sm">
+                  <p class="text-2xl font-black text-slate-300 font-eng" id="statSkippedCount">0</p>
+                  <p class="text-xs font-bold text-white/90">স্কিপ / উত্তরহীন</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Post-Test Filter Toolbar -->
+            <div class="px-6 sm:px-8 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200">
+                <div>
+                  <h4 class="font-black text-lg text-slate-900">ভুলের বিশদ ময়নাতদন্ত ও ব্যাখ্যা</h4>
+                  <p class="text-xs text-slate-500 font-semibold">কোনটি সঠিক হয়েছে, কোনটি ভুল হয়েছে এবং রেফারেন্স জেনে নিন</p>
+                </div>
+
+                <!-- Filter Pills -->
+                <div class="flex items-center gap-1.5 p-1 bg-slate-100 rounded-2xl text-xs font-bold">
+                  <button onclick="filterResultReviews('all')" id="revTabAll" class="rev-tab px-3.5 py-1.5 rounded-xl bg-slate-900 text-white transition">সবগুলো (<span id="countAllRev">০</span>)</button>
+                  <button onclick="filterResultReviews('wrong')" id="revTabWrong" class="rev-tab px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">শুধু ভুল (<span id="countWrongRev" class="text-red-600">০</span>)</button>
+                  <button onclick="filterResultReviews('correct')" id="revTabCorrect" class="rev-tab px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">সঠিক (<span id="countCorrectRev" class="text-brand-700">০</span>)</button>
+                  <button onclick="filterResultReviews('skipped')" id="revTabSkipped" class="rev-tab px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition">স্কিপ (<span id="countSkippedRev">০</span>)</button>
+                </div>
+              </div>
+
+              <!-- Question Explanation Cards List -->
+              <div id="reviewQuestionsList" class="space-y-4 pt-2">
+                <!-- Rendered dynamically with complete explanations -->
+              </div>
+
+              <!-- Action Bar after Result -->
+              <div class="py-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                <button onclick="initiateExam()" class="px-6 py-3 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow transition flex items-center gap-2">
+                  <i class="fa-solid fa-rotate-right"></i>
+                  <span>পুনরায় নতুন প্রশ্নে পরীক্ষা দিন</span>
+                </button>
+                <div class="flex items-center gap-2">
+                  <button onclick="saveAllMistakesToNotebook()" class="px-5 py-3 rounded-2xl bg-amber-100 text-amber-900 hover:bg-amber-200 font-bold text-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-bookmark text-amber-700"></i>
+                    <span>ভুলগুলো "ভুল খাতায়" জমা রাখুন</span>
+                  </button>
+                  <a href="#mock-viva" class="px-5 py-3 rounded-2xl bg-slate-900 hover:bg-black text-white font-bold text-sm transition">
+                    মক ভাইভায় অংশ নিন →
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       QUESTION BANK SECTION (5,000+ MCQs & Category Explorer)
+  ======================================================== -->
+  <section id="question-bank" class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="text-brand-700 font-bold text-xs uppercase tracking-widest bg-brand-50 border border-brand-200 px-3 py-1 rounded-full">
+            বিশাল প্রশ্নভাণ্ডার
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-2">
+            ৫,০০০+ কৃষি MCQ প্রশ্ন ব্যাংক
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base font-medium">
+            সরকারি ও বেসরকারি সকল কৃষি পরীক্ষার সিলেবাস অনুযায়ী বিষয়ভিত্তিক ও প্রতিষ্ঠানভিত্তিক প্রশ্ন।
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative w-full md:w-80">
+          <input type="text" id="bankSearchInput" onkeyup="filterBankQuestions()" placeholder="প্রশ্ন, ফসল বা বিষয় খুঁজুন..." class="w-full pl-10 pr-4 py-2.5 rounded-2xl border border-slate-300 focus:outline-none focus:border-brand-600 text-sm" />
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+        </div>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2 pb-6 border-b border-slate-200 text-xs sm:text-sm font-bold">
+        <button onclick="filterBankCategory('all')" class="bank-pill px-4 py-2 rounded-xl bg-brand-600 text-white transition">সব প্রশ্ন (৫,২৪০)</button>
+        <button onclick="filterBankCategory('crop')" class="bank-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">শস্য ও ফসল বিজ্ঞান (১,৪৫০)</button>
+        <button onclick="filterBankCategory('soil')" class="bank-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">মৃত্তিকা ও সার (৯২০)</button>
+        <button onclick="filterBankCategory('pest')" class="bank-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">কীটতত্ত্ব ও বালাই (৮৬০)</button>
+        <button onclick="filterBankCategory('policy')" class="bank-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">কৃষি অর্থনীতি ও ব্যাংক (৯৮০)</button>
+        <button onclick="filterBankCategory('fisheries')" class="bank-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">মৎস্য ও প্রাণিসম্পদ (১,০৩০)</button>
+      </div>
+
+      <!-- Bank Cards Grid -->
+      <div id="bankQuestionsContainer" class="mt-8 grid md:grid-cols-2 gap-4">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Bottom Load More / Auto Update Badge -->
+      <div class="mt-8 text-center">
+        <button onclick="loadMoreBankQuestions()" class="px-7 py-3 rounded-2xl border-2 border-slate-900 hover:bg-slate-900 hover:text-white font-bold text-sm transition">
+          <i class="fa-solid fa-plus mr-1"></i> আরো প্রশ্ন লোড করুন (অটো-আপডেটেড)
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       BOOK & DIGITAL LIBRARY SECTION (বিভিন্ন বইয়ের প্রশ্ন)
+  ======================================================== -->
+  <section id="library" class="py-14 bg-[#F7FAF7] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <span class="text-indigo-700 font-bold text-xs uppercase tracking-widest bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+          রেফারেন্স বুক কালেকশন
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900">
+          বিভিন্ন ধরনের প্রামাণ্য বইয়ের প্রশ্ন ও ব্যাখ্যা
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium">
+          বিসিএস ও সরকারি চাকরির প্রস্তুতিতে যেসব টেক্সটবুক ও গাইড সবচেয়ে বেশি ব্যবহৃত হয়, সেগুলোর সারসংক্ষেপ এবং অধ্যায়ভিত্তিক প্রশ্ন।
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Book 1 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-card hover:-translate-y-1 transition duration-200 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="h-44 rounded-2xl bg-gradient-to-tr from-brand-800 to-emerald-600 p-4 text-white flex flex-col justify-between relative overflow-hidden shadow">
+              <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full w-max">বিসিএস স্পেশাল</span>
+              <div>
+                <h4 class="font-black text-lg leading-tight">কৃষি ক্যাডার হ্যান্ডবুক</h4>
+                <p class="text-xs text-emerald-200 mt-1">প্রফেসর ড. এ. কে. এম. আজাদ</p>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-semibold text-emerald-100">
+                <span>৭২০ পৃষ্ঠা</span>
+                <span>১,২০০+ MCQ</span>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <p class="text-xs font-bold text-slate-500">ফোকাস: ফসল বিজ্ঞান, ব্রি ধান জাত, আধুনিক বালাই দমন</p>
+              <div class="flex items-center gap-1 text-xs text-amber-500 font-bold">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-slate-700 ml-1">৪.৯ (৮৪০ রিভিউ)</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="openBookModal('কৃষি ক্যাডার হ্যান্ডবুক', 'ফসল বিজ্ঞান, ব্রি ধান জাত ও আধুনিক বালাই দমন সংক্রান্ত বিগত ১৫ বছরের বিসিএস ও গবেষণা প্রতিষ্ঠানের সম্পূর্ণ সমাধান।')" class="mt-4 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition">
+            প্রশ্নসমূহ প্র্যাকটিস করুন
+          </button>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-card hover:-translate-y-1 transition duration-200 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="h-44 rounded-2xl bg-gradient-to-tr from-blue-800 to-indigo-600 p-4 text-white flex flex-col justify-between relative overflow-hidden shadow">
+              <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full w-max">DAE স্পেশাল</span>
+              <div>
+                <h4 class="font-black text-lg leading-tight">উপ-সহকারী কৃষি গাইড</h4>
+                <p class="text-xs text-blue-200 mt-1">কৃষিবিদ মো: হাবিবুর রহমান</p>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-semibold text-blue-100">
+                <span>৫৪০ পৃষ্ঠা</span>
+                <span>৮৫০+ MCQ</span>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <p class="text-xs font-bold text-slate-500">ফোকাস: সার সুপারিশ, IPM পদ্ধতি, বীজ ও মাঠ ব্যবস্থাপনা</p>
+              <div class="flex items-center gap-1 text-xs text-amber-500 font-bold">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-slate-700 ml-1">৫.০ (৬২০ রিভিউ)</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="openBookModal('উপ-সহকারী কৃষি গাইড', 'কৃষি সম্প্রসারণ অধিদপ্তরের বিগত ২০ বছরের নিয়োগ পরীক্ষার প্রশ্ন এবং প্রতিটি ভুল অপশনের সঠিক ব্যাখ্যা সংকলন।')" class="mt-4 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition">
+            প্রশ্নসমূহ প্র্যাকটিস করুন
+          </button>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-card hover:-translate-y-1 transition duration-200 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="h-44 rounded-2xl bg-gradient-to-tr from-amber-700 to-orange-500 p-4 text-white flex flex-col justify-between relative overflow-hidden shadow">
+              <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full w-max">ব্যাংক স্পেশাল</span>
+              <div>
+                <h4 class="font-black text-lg leading-tight">কৃষি ব্যাংক অফিসার সহায়িকা</h4>
+                <p class="text-xs text-amber-200 mt-1">কৃষি অর্থনীতি সেল, BAU</p>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-semibold text-amber-100">
+                <span>৪২০ পৃষ্ঠা</span>
+                <span>৭৫০+ MCQ</span>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <p class="text-xs font-bold text-slate-500">ফোকাস: কৃষি ঋণ, পলিসি, সমবায় ও গ্রামীণ অর্থনীতি</p>
+              <div class="flex items-center gap-1 text-xs text-amber-500 font-bold">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <span class="text-slate-700 ml-1">৪.৮ (৪১০ রিভিউ)</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="openBookModal('কৃষি ব্যাংক অফিসার সহায়িকা', 'বাংলাদেশ কৃষি ব্যাংক ও রাজশাহী কৃষি উন্নয়ন ব্যাংকের সিনিয়র অফিসার ও অফিসার পদের বিগত প্রশ্ন ও বিশ্লেষণ।')" class="mt-4 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition">
+            প্রশ্নসমূহ প্র্যাকটিস করুন
+          </button>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-card hover:-translate-y-1 transition duration-200 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="h-44 rounded-2xl bg-gradient-to-tr from-teal-800 to-cyan-600 p-4 text-white flex flex-col justify-between relative overflow-hidden shadow">
+              <span class="text-[10px] font-bold bg-white/20 px-2 py-0.5 rounded-full w-max">গবেষণা ও উদ্ভাবন</span>
+              <div>
+                <h4 class="font-black text-lg leading-tight">BARI-BRRI জাত ডাইজেস্ট</h4>
+                <p class="text-xs text-teal-200 mt-1">গবেষক প্যানেল, গাজীপুর</p>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-semibold text-teal-100">
+                <span>৩১০ পৃষ্ঠা</span>
+                <span>৬০০+ MCQ</span>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <p class="text-xs font-bold text-slate-500">ফোকাস: নতুন উদ্ভাবিত উচ্চফলনশীল জাত, জিংক ধান, হাইব্রিড ভুট্টা</p>
+              <div class="flex items-center gap-1 text-xs text-amber-500 font-bold">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="text-slate-700 ml-1">৪.৯ (৫৩০ রিভিউ)</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="openBookModal('BARI-BRRI জাত ডাইজেস্ট', 'বাংলাদেশের সকল সরকারি কৃষি গবেষণা প্রতিষ্ঠানের সাম্প্রতিক উদ্ভাবিত জাত, বৈশিষ্ট ও উদ্ভাবকদের নামের বিশদ প্রশ্নমালা।')" class="mt-4 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition">
+            প্রশ্নসমূহ প্র্যাকটিস করুন
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MISTAKE NOTEBOOK (আমার ভুল খাতা - KEY REQUIREMENT)
+  ======================================================== -->
+  <section id="mistake-notebook" class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-amber-50/60 rounded-3xl p-6 sm:p-10 border border-amber-200 shadow-card">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-amber-200/80">
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-200/60 text-amber-900 text-xs font-bold">
+              <i class="fa-solid fa-book-bookmark text-amber-700"></i>
+              <span>পার্সোনালাইজড দুর্বলতা মেরামত</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">
+              আমার ডিজিটাল ভুল খাতা (Mistake Notebook)
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600">
+              আপনি যেসব মক টেস্ট দিয়েছেন এবং যে প্রশ্নে ভুল হয়েছে—সেগুলো এখানে অটো সেভ থাকে। পরীক্ষার আগের রাতে শুধু এগুলো রিভিশন দিন।
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="clearMistakeNotebook()" class="px-4 py-2 rounded-xl bg-white border border-amber-300 text-amber-900 hover:bg-red-50 hover:text-red-700 text-xs font-bold transition">
+              <i class="fa-solid fa-trash-can mr-1"></i> খাতা খালি করুন
+            </button>
+            <button onclick="testOnlyMistakes()" class="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold shadow transition flex items-center gap-1.5">
+              <i class="fa-solid fa-play"></i>
+              <span>শুধু ভুলগুলো নিয়ে পুনরায় টেস্ট দিন</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Saved Mistake Container -->
+        <div id="mistakeContainer" class="mt-6 space-y-3">
+          <!-- Will be rendered via JS or show empty notice -->
+          <div class="text-center py-10 space-y-2">
+            <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base">আপনার ভুল খাতায় এখনো কোনো প্রশ্ন যুক্ত হয়নি!</h4>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+              মডেল টেস্ট দেওয়ার পর যেসব প্রশ্ন ভুল হবে সেগুলো এখানে ক্লিক করে যুক্ত করতে পারেন অথবা টেস্ট সাবমিটের পর অটো সেভ করতে পারেন।
+            </p>
+            <button onclick="scrollToExam()" class="mt-2 text-xs font-bold text-brand-700 hover:underline">
+              এখনই একটি মডেল টেস্ট দিয়ে ট্রাই করুন →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       LIVE MOCK VIVA / INTERVIEW SECTION
+  ======================================================== -->
+  <section id="mock-viva" class="py-14 bg-[#F2F6F1] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-6 space-y-5">
+          <span class="text-amber-800 font-bold text-xs uppercase tracking-widest bg-amber-100 border border-amber-300 px-3 py-1 rounded-full">
+            রিয়েল ভাইভা বোর্ড প্রস্তুতি
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
+            কৃষি ক্যাডার ও সরকারি চাকরির লাইভ মক ভাইভা
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+            প্রিলিমিনারি ও লিখিত পাসের পর ভাইভাতেই চূড়ান্ত চাকরি নির্ধারিত হয়। আমাদের সাবেক পিএসসি প্যানেলিস্ট, কৃষি সম্প্রসারণ কর্মকর্তা ও গবেষকদের সরাসরি বোর্ডে উপস্থিত হয়ে আত্মবিশ্বাস যাচাই করুন।
+          </p>
+
+          <div class="space-y-3 pt-2 text-sm font-semibold text-slate-700">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-xs">✓</span>
+              <span>১:১ রিয়েল টাইম জুম ভাইভা বোর্ড ও তাৎক্ষণিক ফিডব্যাক</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-xs">✓</span>
+              <span>কৃষি সম্প্রসারণ, অর্থনীতি, বাজেট ও সাধারণ জ্ঞানের জটিল প্রশ্নাবলী</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center text-xs">✓</span>
+              <span>ভাইভা রেকর্ডিং ও দুর্বলতা চিহ্নিত করার নম্বরপত্র প্রদান</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center gap-4">
+            <div class="flex -space-x-3">
+              <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Student" />
+              <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Student" />
+              <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Student" />
+            </div>
+            <p class="text-xs text-slate-600 font-semibold">
+              গত মাসে <strong>৪৫০+ জন</strong> সফলভাবে মক ভাইভায় অংশ নিয়েছেন
+            </p>
+          </div>
+        </div>
+
+        <!-- Viva Slot Booking Card -->
+        <div class="lg:col-span-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-card space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h3 class="font-bold text-slate-900 text-base">মক ভাইভার ফ্রি স্লট বুকিং</h3>
+              <span class="text-xs bg-brand-50 text-brand-700 font-bold px-2 py-0.5 rounded">আজ ৪টি স্লট বাকি</span>
+            </div>
+
+            <form onsubmit="handleVivaBooking(event)" class="space-y-3.5">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">আপনার পূর্ণ নাম</label>
+                <input type="text" required placeholder="উদা: কৃষিবিদ আসিফ ইকবাল" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-600" />
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">মোবাইল নম্বর</label>
+                  <input type="tel" required placeholder="017XXXXXXXX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-600 font-eng" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">কাঙ্ক্ষিত পরীক্ষা</label>
+                  <select class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-600">
+                    <option>কৃষি বিসিএস ভাইভা</option>
+                    <option>DAE উপ-সহকারী ভাইভা</option>
+                    <option>কৃষি ব্যাংক সিনিয়র অফিসার</option>
+                    <option>BARI / BRRI বৈজ্ঞানিক কর্মকর্তা</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">পছন্দের তারিখ ও সময়</label>
+                <input type="datetime-local" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-600 text-slate-700" />
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-sm shadow transition">
+                স্লট কনফার্ম করুন (ফ্রি এসএমএস অ্যালার্ট)
+              </button>
+            </form>
+
+            <p class="text-[11px] text-center text-slate-500">
+              * কনফার্মেশনের পর আপনার মোবাইলে গুগল মিট/জুম লিংক পাঠিয়ে দেওয়া হবে।
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Today's Top Scorers / Leaderboard Preview -->
+  <section class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900">আজকের লাইভ লিডারবোর্ড</h3>
+          <p class="text-xs text-slate-500 font-semibold">নেগেটিভ মার্কিং হিসাবের পর সর্বোচ্চ স্কোর অর্জনকারী পরীক্ষার্থীগণ</p>
+        </div>
+        <span class="text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full">
+          🏆 প্রতিদিন রাত ১২টায় লিডারবোর্ড আপডেট
+        </span>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4">
+        <!-- Rank 1 -->
+        <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-full bg-amber-500 text-slate-900 font-black text-sm flex items-center justify-center">১ম</span>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">সাদিয়া আফরিন</p>
+              <p class="text-[11px] text-slate-500">বাংলাদেশ কৃষি বিশ্ববিদ্যালয় (BAU)</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="font-black text-brand-700 text-base font-eng">১৯.৫০ / ২০</span>
+            <p class="text-[10px] text-slate-400">সময়: ১২ মি. ৪০ সে.</p>
+          </div>
+        </div>
+
+        <!-- Rank 2 -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-full bg-slate-300 text-slate-800 font-black text-sm flex items-center justify-center">২য়</span>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">তানভীর মাহমুদ</p>
+              <p class="text-[11px] text-slate-500">শেরেবাংলা কৃষি বিশ্ববিদ্যালয়</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="font-black text-brand-700 text-base font-eng">১৯.০০ / ২০</span>
+            <p class="text-[10px] text-slate-400">সময়: ১৪ মি. ১০ সে.</p>
+          </div>
+        </div>
+
+        <!-- Rank 3 -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-full bg-amber-700 text-white font-black text-sm flex items-center justify-center">৩য়</span>
+            <div>
+              <p class="font-bold text-slate-900 text-sm">মাহমুদুল হাসান</p>
+              <p class="text-[11px] text-slate-500">বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="font-black text-brand-700 text-base font-eng">১৮.৭৫ / ২০</span>
+            <p class="text-[10px] text-slate-400">সময়: ১৩ মি. ৫০ সে.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white text-xl">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <span class="font-eng font-black text-2xl tracking-tight text-white">Agri<span class="text-brand-500">Network</span></span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            বাংলাদেশের ১ম ও সর্ববৃহৎ কৃষি পরীক্ষা প্রস্তুতি ও মক টেস্ট প্ল্যাটফর্ম। ৫,০০০+ অটো আপডেটেড প্রশ্ন, নেগেটিভ মার্কিং এবং ভুলের বিশদ প্রামাণ্য ব্যাখ্যার মাধ্যমে নিশ্চিত করুন আপনার সফলতা।
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-slate-400">
+            <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-youtube text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-telegram text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-slate-900 hover:bg-brand-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links 1 -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white text-sm">পরীক্ষা সমূহ</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#exam-section" onclick="setExamCategory('bcs')" class="hover:text-brand-400 transition">কৃষি বিসিএস প্রিলিমিনারি</a></li>
+            <li><a href="#exam-section" onclick="setExamCategory('dae')" class="hover:text-brand-400 transition">DAE উপ-সহকারী কৃষি কর্মকর্তা</a></li>
+            <li><a href="#exam-section" onclick="setExamCategory('bank')" class="hover:text-brand-400 transition">বাংলাদেশ কৃষি ব্যাংক অফিসার</a></li>
+            <li><a href="#exam-section" onclick="setExamCategory('research')" class="hover:text-brand-400 transition">BARI ও BRRI বৈজ্ঞানিক কর্মকর্তা</a></li>
+            <li><a href="#exam-section" class="hover:text-brand-400 transition">মৎস্য ও প্রাণিসম্পদ অধিদপ্তর</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links 2 -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white text-sm">ফিচার ও রিসোর্স</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#question-bank" class="hover:text-brand-400 transition">৫,০০০+ প্রশ্নব্যাংক</a></li>
+            <li><a href="#library" class="hover:text-brand-400 transition">প্রামাণ্য রেফারেন্স বই</a></li>
+            <li><a href="#mistake-notebook" class="hover:text-brand-400 transition">ভুল খাতা (Mistake Notebook)</a></li>
+            <li><a href="#mock-viva" class="hover:text-brand-400 transition">অনলাইন মক ভাইভা বোর্ড</a></li>
+            <li><a href="#exam-section" class="hover:text-brand-400 transition">নেগেটিভ মার্কিং ক্যালকুলেটর</a></li>
+          </ul>
+        </div>
+
+        <!-- Support / Contact -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white text-sm">যোগাযোগ ও হেল্পডেস্ক</h4>
+          <div class="space-y-2 text-xs text-slate-400">
+            <p><i class="fa-solid fa-headset mr-2 text-brand-500"></i> ২৪/৭ হেল্পলাইন: ০৯৬৩৮-২২০০১১</p>
+            <p><i class="fa-solid fa-envelope mr-2 text-brand-500"></i> support@agrinetwork.com.bd</p>
+            <p><i class="fa-solid fa-location-dot mr-2 text-brand-500"></i> ফার্মগেট, ঢাকা-১২১৫, বাংলাদেশ</p>
+          </div>
+          <div class="pt-2">
+            <span class="inline-block px-3 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] text-emerald-400">
+              ● সার্ভার ও অটো-আপডেট স্ট্যাটাস: স্বাভাবিক
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© ২০২৫ Agri Network (এগ্রিনেটওয়ার্ক ডট কম.বিডি)। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p class="flex items-center gap-3">
+          <a href="#" class="hover:underline">গোপনীয়তা নীতি</a>
+          <span>•</span>
+          <a href="#" class="hover:underline">ব্যবহারের শর্তাবলী</a>
+          <span>•</span>
+          <a href="#" class="hover:underline">সিলেবাস গাইড ২০২৫</a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Generic Modal for Book Preview / Notifications -->
+  <div id="generalModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-in fade-in duration-200">
+      <button onclick="closeModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm font-bold">
+      <span id="toastIcon" class="text-brand-500"><i class="fa-solid fa-circle-check"></i></span>
+      <span id="toastMessage">বিজ্ঞপ্তি বার্তা</span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       JAVASCRIPT APPLICATION LOGIC
+       Full exam state machine, negative marking, instant answers,
+       detailed explanations, mistake notebook, auto-refresh.
+  ======================================================== -->
+  <script>
+    // --- 1. COMPREHENSIVE QUESTION DATASET (5000+ pool simulation with rich agricultural facts) ---
+    const QUESTION_DATABASE = [
+      {
+        id: 1,
+        cat: 'bcs',
+        topic: 'শস্য বিজ্ঞান',
+        q: 'বাংলাদেশে উদ্ভাবিত প্রথম উচ্চফলনশীল জিংক সমৃদ্ধ ধানের জাত কোনটি?',
+        options: ['ব্রি ধান২৮', 'ব্রি ধান৬২', 'বিনা ধান৭', 'ব্রি ধান২৯'],
+        ans: 1, // index of 'ব্রি ধান৬২'
+        explanation: '২০১৩ সালে বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) বিশ্বের সর্বপ্রথম জিংক সমৃদ্ধ ধানের জাত হিসেবে "ব্রি ধান৬২" অবমুক্ত করে। এতে জিংকের মাত্রা প্রতি কেজিতে ১৯ মিলিগ্রাম এবং প্রোটিন ৯%। এটি মাত্র ১০০-১০৫ দিনে পাকে।',
+        bookRef: 'BRRI উদ্ভাবিত ধানের জাত ডাইজেস্ট, পৃ-৪২ (উদ্বাস্তু ও উচ্চফলনশীল এডিশন)'
+      },
+      {
+        id: 2,
+        cat: 'bcs',
+        topic: 'মৃত্তিকা ও সার',
+        q: 'কৃষি জমিতে ইউরিয়া সারে শতকরা কত ভাগ নাইট্রোজেন (N) উপস্থিত থাকে?',
+        options: ['২০%', '৩৬%', '৪৬%', '৬০%'],
+        ans: 2, // 46%
+        explanation: 'ইউরিয়া [CO(NH2)2] সারে শতকরা ৪৬ ভাগ নাইট্রোজেন বিদ্যমান থাকে। উদ্ভিদের দ্রুত দৈহিক বৃদ্ধি এবং পাতা ঘন সবুজ করার জন্য ইউরিয়া প্রধান নাইট্রোজেন সরবরাহকারী সার হিসেবে ব্যবহৃত হয়।',
+        bookRef: 'মৃত্তিকা বিজ্ঞান ও সার ব্যবস্থাপনা, ড. আমিনুল ইসলাম, অধ্যায়-৪'
+      },
+      {
+        id: 3,
+        cat: 'bcs',
+        topic: 'কৃষি পরিচিতি',
+        q: 'বাংলাদেশের কোন জেলাকে চা শিল্পের রাজধানী বলা হয় এবং চা বোর্ডের সদর দপ্তর কোথায় অবস্থিত?',
+        options: ['শ্রীমঙ্গল ও চট্টগ্রাম', 'মৌলভীবাজার ও ঢাকা', 'সিলেট ও শ্রীমঙ্গল', 'পঞ্চগড় ও চট্টগ্রাম'],
+        ans: 0,
+        explanation: 'মৌলভীবাজারের "শ্রীমঙ্গল" উপজেলাকে বাংলাদেশের চায়ের রাজধানী বলা হয়। তবে বাংলাদেশ চা বোর্ডের (Bangladesh Tea Board) প্রধান সদর দপ্তর বাণিজ্যনগরী চট্টগ্রামে অবস্থিত।',
+        bookRef: 'বাংলাদেশ কৃষি ভূগোল ও অর্থনৈতিক সমীক্ষা ২০২৪'
+      },
+      {
+        id: 4,
+        cat: 'dae',
+        topic: 'কীটতত্ত্ব ও বালাই',
+        q: 'ধানের সর্বনাশা "মাজরা পোকা" (Yellow Stem Borer) দমনে পরিবেশবান্ধব কোন জৈব ফাঁদটি সবচেয়ে কার্যকর?',
+        options: ['আলোক ফাঁদ ও সেক্স ফেরোমন ফাঁদ', 'কীটনাশক স্প্রে', 'বোরন স্প্রে', 'অতিরিক্ত ইউরিয়া প্রয়োগ'],
+        ans: 0,
+        explanation: 'আইপিএম (IPM) প্রযুক্তির আওতায় সেক্স ফেরোমন ফাঁদ এবং রাতে আলোক ফাঁদ ব্যবহারের মাধ্যমে পুরুষ মাজরা পোকা আকৃষ্ট করে সহজেই বংশবৃদ্ধি রোধ ও পরিবেশবান্ধব উপায়ে দমন করা যায়।',
+        bookRef: 'DAE সমন্বিত বালাই ব্যবস্থাপনা (IPM) ম্যানুয়াল, পৃ-১৮'
+      },
+      {
+        id: 5,
+        cat: 'dae',
+        topic: 'শস্য বিজ্ঞান',
+        q: 'পাট গাছের পাতা থেকে টক পাতা চা এবং আশের জন্য তোষা পাটের বৈজ্ঞানিক নাম কোনটি?',
+        options: ['Corchorus capsularis', 'Corchorus olitorius', 'Oryza sativa', 'Gossypium hirsutum'],
+        ans: 1, // Corchorus olitorius
+        explanation: 'তোষা পাটের বৈজ্ঞানিক নাম হলো Corchorus olitorius (লম্বা ফল)। পক্ষান্তরে সাদা বা দেশি পাটের বৈজ্ঞানিক নাম হলো Corchorus capsularis (গোলাকার ফল)। তোষা পাটের আঁশ উজ্জ্বল ও শক্তিশালী হয়।',
+        bookRef: 'বাংলাদেশ পাট গবেষণা ইনস্টিটিউট (BJRI) সহায়িকা'
+      },
+      {
+        id: 6,
+        cat: 'bank',
+        topic: 'কৃষি অর্থনীতি ও ঋণ',
+        q: 'বাংলাদেশ ব্যাংকের কৃষি ঋণ নীতিমালা অনুযায়ী শস্য ঋণ পরিশোধের সর্বোচ্চ স্বাভাবিক সময়সীমা কত দিন?',
+        options: ['৩ মাস', '৬ মাস', '১২ মাস (১ বছর)', '২৪ মাস'],
+        ans: 2,
+        explanation: 'স্বাভাবিক শস্য ঋণের (Crop Loan) ক্ষেত্রে ফসল রোপণ থেকে কর্তন ও বিক্রির সময় বিবেচনায় ঋণ পরিশোধের সময়সীমা সাধারণত ১২ মাস বা ১ বছর নির্ধারিত থাকে। ক্ষেত্রবিশেষে প্রাকৃতিক দুর্যোগে তা পুনঃতফসিল করা যায়।',
+        bookRef: 'বাংলাদেশ ব্যাংক বার্ষিক কৃষি ও পল্লী ঋণ নীতিমালা ২০২৪-২৫'
+      },
+      {
+        id: 7,
+        cat: 'bank',
+        topic: 'সাধারণ জ্ঞান',
+        q: 'বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) কোন জেলায় অবস্থিত?',
+        options: ['ময়মনসিংহ', 'গাজীপুর (জয়দেবপুর)', 'রংপুর', 'রাজশাহী'],
+        ans: 1,
+        explanation: 'বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) এবং বাংলাদেশ কৃষি গবেষণা ইনস্টিটিউট (BARI) উভয়েরই প্রধান সদর দপ্তর গাজীপুরের জয়দেবপুরে অবস্থিত। ময়মনসিংহে বাংলাদেশ পরমাণু কৃষি গবেষণা ইনস্টিটিউট (BINA) অবস্থিত।',
+        bookRef: 'কৃষি ক্যাডার হ্যান্ডবুক, সাধারণ জ্ঞান ও গবেষণা প্রতিষ্ঠান অধ্যায়'
+      },
+      {
+        id: 8,
+        cat: 'research',
+        topic: 'উদ্ভিদ প্রজনন',
+        q: 'স্বর্ণা ধান ও ব্রি ধান২৮ এর সংকরায়ণে বোরো মৌসুমে আগাম জাত হিসেবে কোনটি উদ্ভাবিত হয়েছে?',
+        options: ['ব্রি ধান৮৮', 'ব্রি ধান২৯', 'ব্রি হাইব্রিড ধান৫', 'ব্রি ধান৫০'],
+        ans: 0,
+        explanation: 'ব্রি ধান৮৮ হলো বোরো মৌসুমের একটি উচ্চফলনশীল আগাম জাত যা ব্রি ধান২৮ এর বিকল্প হিসেবে জনপ্রিয়। এর ফলন হেক্টর প্রতি প্রায় ৭.০ টন এবং জীবনকাল ১৪০-১৪৩ দিন।',
+        bookRef: 'BARI-BRRI জাত ডাইজেস্ট, পৃ-১৯'
+      },
+      {
+        id: 9,
+        cat: 'research',
+        topic: 'মৃত্তিকা ও সার',
+        q: 'মাটির অম্লত্ব (Acidity) দূর করতে বা pH মাত্রা স্বাভাবিক করতে জমিতে কোনটি প্রয়োগ করা হয়?',
+        options: ['ইউরিয়া সার', 'কৃষি চুন (Dolomite / Lime)', 'পটাশ সার (MOP)', 'সালফার'],
+        ans: 1, // চুন
+        explanation: 'মাটির pH মাত্রা কম থাকলে (অম্লীয় হলে) তা দূর করে প্রশমিত করতে জমিতে ডলোমাইট বা কৃষি চুন প্রয়োগ করা হয়। এতে মাটিতে ক্যালসিয়াম ও ম্যাগনেসিয়ামের ঘাটতিও পূরণ হয়।',
+        bookRef: 'মৃত্তিকা ও সার ব্যবস্থাপনা, ড. আমিনুল ইসলাম'
+      },
+      {
+        id: 10,
+        cat: 'bcs',
+        topic: 'মৎস্য ও প্রাণিসম্পদ',
+        q: 'মাছের কৃত্রিম প্রজননে বা প্রণোদিত প্রজননে পিটুইটারি গ্রন্থি (PG) নির্যাস ছাড়াও বাণিজ্যিক কোন হরমোন ব্যবহার করা হয়?',
+        options: ['ওভাপ্রিম (Ovaprim)', 'ইউরিয়া দ্রবণ', 'ফরমালিন', 'অক্সিন'],
+        ans: 0,
+        explanation: 'মাছের কৃত্রিম প্রজননে ডিম্বাণু ও শুক্রাণু নিঃসরণের জন্য পিটুইটারি গ্ল্যান্ড (PG) ছাড়াও সিন্থেটিক হরমোন "ওভাপ্রিম" (Ovaprim / Ovulin) বহুলভাবে সফলতার সাথে ব্যবহৃত হয়।',
+        bookRef: 'মৎস্য বিজ্ঞান প্রশ্নব্যাংক, BFRI প্রকাশনা'
+      },
+      {
+        id: 11,
+        cat: 'dae',
+        topic: 'শস্য বিজ্ঞান',
+        q: 'আলুর মড়ক বা লেইট ব্লাইট (Late Blight) রোগের জীবাণুর নাম কী?',
+        options: ['Phytophthora infestans', 'Fusarium oxysporum', 'Xanthomonas oryzae', 'Pyricularia oryzae'],
+        ans: 0,
+        explanation: 'আলুর মারাত্মক মড়ক রোগ Phytophthora infestans নামক ছত্রাক দ্বারা সংঘটিত হয়। ১৮৪৫ সালে এই রোগের কারণেই ঐতিহাসিক আইরিশ দুর্ভিক্ষ ঘটেছিল। কুয়াশাচ্ছন্ন আর্দ্র আবহাওয়ায় এই রোগ দ্রুত ছড়ায়।',
+        bookRef: 'উদ্ভিদ রোগতত্ত্ব ও বালাই ব্যবস্থাপনা, বাকৃবি প্রকাশনা'
+      },
+      {
+        id: 12,
+        cat: 'bcs',
+        topic: 'কৃষি অর্থনীতি',
+        q: 'বাংলাদেশে কৃষি শুমারি কত বছর পর পর অনুষ্ঠিত হয়?',
+        options: ['৩ বছর', '৫ বছর', '১০ বছর', '১৫ বছর'],
+        ans: 2,
+        explanation: 'বাংলাদেশে বাংলাদেশ পরিসংখ্যান ব্যুরো (BBS) কর্তৃক প্রতি ১০ বছর পর পর দেশব্যাপী পূর্ণাঙ্গ কৃষি শুমারি পরিচালিত হয়ে থাকে। সর্বশেষ কৃষি শুমারি ২০১৯ সালে অনুষ্ঠিত হয়েছিল।',
+        bookRef: 'বাংলাদেশ অর্থনৈতিক সমীক্ষা ও পরিসংখ্যান নির্দেশিকা'
+      },
+      {
+        id: 13,
+        cat: 'bank',
+        topic: 'শস্য বিজ্ঞান',
+        q: 'আমের কোন জাতটি বাংলাদেশে সর্বাধিক নাবি জাত (সবচেয়ে দেরিতে পাকে) হিসেবে পরিচিত?',
+        options: ['গোপালভোগ', 'হিমসাগর', 'আম্রপালি', 'আশ্বিনা'],
+        ans: 3,
+        explanation: 'আশ্বিনা হলো সবচেয়ে নাবি জাতের আম যা ভাদ্র-আশ্বিন মাসেও পাওয়া যায়। গোপালভোগ ও হিমসাগর আগাম ও মধ্যম মৌসুমের আম।',
+        bookRef: 'উদ্যানতত্ত্ব সহায়িকা, ফল ও ফুল চাষ'
+      },
+      {
+        id: 14,
+        cat: 'research',
+        topic: 'মৃত্তিকা ও সার',
+        q: 'ধানের টুংরো (Tungro) রোগ সৃষ্টিকারী ভাইরাসের বাহক পোকা কোনটি?',
+        options: ['বাদামি গাছফড়িং (BPH)', 'সবুজ পাতাফড়িং (GLH)', 'মাজরা পোকা', 'লেদা পোকা'],
+        ans: 1, // Green Leafhopper
+        explanation: 'ধানের টুংরো রোগ একটি ভাইরাসজনিত রোগ যার বাহক হলো সবুজ পাতাফড়িং (Nephotettix virescens / Green Leafhopper)। এরা আক্রান্ত গাছ থেকে সুস্থ গাছে ভাইরাস সংক্রমণ ঘটায়।',
+        bookRef: 'DAE উপ-সহকারী কৃষি কর্মকর্তা নিয়োগ সহায়িকা'
+      },
+      {
+        id: 15,
+        cat: 'bcs',
+        topic: 'কৃষি নীতি',
+        q: 'বাংলাদেশের বর্তমান জাতীয় কৃষি নীতি কত সালে সংশোধিত ও অনুমোদিত হয়?',
+        options: ['২০১২ সালে', '২০১৮ সালে', '২০২০ সালে', '২০২৪ সালে'],
+        ans: 1,
+        explanation: 'বাংলাদেশের সমন্বিত ও আধুনিক "জাতীয় কৃষি নীতি ২০১৮" সালে মন্ত্রিসভা কর্তৃক চূড়ান্ত অনুমোদন লাভ করে। এতে যান্ত্রিকীকরণ ও ক্লাইমেট স্মার্ট এগ্রিকালচারকে প্রাধান্য দেওয়া হয়েছে।',
+        bookRef: 'কৃষি মন্ত্রণালয় সরকারি গেজেট ও বিসিএস পাঠ্য'
+      }
+    ];
+
+    // --- 2. GLOBAL STATE MACHINE ---
+    let currentCategory = 'bcs';
+    let questionLimit = 10;
+    let activeExamQuestions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = {}; // { questionId: selectedOptionIndex }
+    let flaggedQuestions = new Set();
+    let examTimer = null;
+    let secondsLeft = 15 * 60; // 15 mins default
+    let isExamActive = false;
+    let examResultData = null;
+
+    // LocalStorage Key for Mistake Notebook
+    const MISTAKE_STORAGE_KEY = 'agri_network_mistakes_v1';
+
+    // --- 3. INITIALIZATION ON PAGE LOAD ---
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBankQuestions();
+      renderMistakeNotebook();
+      setupMobileMenu();
+    });
+
+    function setupMobileMenu() {
+      const toggle = document.getElementById('mobileMenuToggle');
+      const menu = document.getElementById('mobileMenu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    }
+
+    // --- 4. EXAM SETUP & CONFIGURATION ---
+    function setExamCategory(cat) {
+      currentCategory = cat;
+      const buttons = document.querySelectorAll('.exam-cat-btn');
+      buttons.forEach(btn => {
+        const isSelected = btn.getAttribute('data-cat') === cat;
+        if (isSelected) {
+          btn.classList.add('border-brand-600', 'bg-brand-50/80', 'border-2');
+          btn.classList.remove('border-slate-200', 'bg-white');
+          const icon = btn.querySelector('i');
+          if (icon) {
+            icon.className = 'fa-solid fa-circle-dot text-brand-600 text-lg';
+          }
+        } else {
+          btn.classList.remove('border-brand-600', 'bg-brand-50/80', 'border-2');
+          btn.classList.add('border-slate-200', 'bg-white');
+          const icon = btn.querySelector('i');
+          if (icon) {
+            icon.className = 'fa-regular fa-circle text-slate-300 text-lg';
+          }
+        }
+      });
+      showToast('পরীক্ষা ধরণ নির্বাচন: ' + getCatBanglaName(cat));
+    }
+
+    function getCatBanglaName(cat) {
+      switch (cat) {
+        case 'bcs': return 'কৃষি বিসিএস স্পেশাল';
+        case 'dae': return 'DAE উপ-সহকারী কৃষি কর্মকর্তা';
+        case 'bank': return 'কৃষি ব্যাংক ও বিশেষায়িত ব্যাংক';
+        case 'research': return 'BARI / BRRI বৈজ্ঞানিক কর্মকর্তা';
+        default: return 'সমন্বিত মডেল টেস্ট';
+      }
+    }
+
+    function setQuestionLimit(limit) {
+      questionLimit = limit;
+      const l10 = document.getElementById('limitBtn10');
+      const l20 = document.getElementById('limitBtn20');
+      const label = document.getElementById('selectedQuestionCountLabel');
+
+      if (limit === 10) {
+        l10.className = 'py-2 rounded-xl bg-brand-600 text-white transition';
+        l20.className = 'py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        label.innerText = '১০টি প্রশ্ন (কুইক টেস্ট - ১০ মিনিট)';
+      } else {
+        l20.className = 'py-2 rounded-xl bg-brand-600 text-white transition';
+        l10.className = 'py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        label.innerText = '২০টি প্রশ্ন (পূর্ণাঙ্গ টেস্ট - ২০ মিনিট)';
+      }
+    }
+
+    function scrollToExam() {
+      const el = document.getElementById('exam-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // --- 5. EXAM ENGINE LIFECYCLE ---
+    function initiateExam() {
+      // 1. Prepare Question Subset based on category or shuffle
+      let pool = QUESTION_DATABASE.filter(q => q.cat === currentCategory);
+      if (pool.length < questionLimit) {
+        pool = [...QUESTION_DATABASE]; // Fallback to all questions
+      }
+
+      // Shuffle pool
+      const shuffled = [...pool].sort(() => 0.5 - Math.random());
+      activeExamQuestions = shuffled.slice(0, Math.min(questionLimit, shuffled.length));
+
+      // 2. Reset state variables
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      flaggedQuestions.clear();
+      isExamActive = true;
+      secondsLeft = activeExamQuestions.length * 60; // 1 min per question
+
+      // 3. UI Toggles
+      document.getElementById('preTestScreen').classList.add('hidden');
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('activeQuizScreen').classList.remove('hidden');
+      document.getElementById('paletteContainer').classList.remove('hidden');
+      
+      const examAction = document.getElementById('examActionBtn');
+      examAction.innerText = 'মডেল টেস্ট চলছে...';
+      examAction.disabled = true;
+      examAction.classList.add('opacity-75');
+
+      document.getElementById('activeExamLabel').innerText = getCatBanglaName(currentCategory);
+
+      // 4. Render Components
+      renderPalette();
+      renderCurrentQuestion();
+      startTimer();
+
+      showToast('পরীক্ষা শুরু হয়েছে! সময় গণনা চলছে...');
+    }
+
+    function startTimer() {
+      clearInterval(examTimer);
+      updateTimerDisplay();
+      examTimer = setInterval(() => {
+        secondsLeft--;
+        updateTimerDisplay();
+        if (secondsLeft <= 0) {
+          clearInterval(examTimer);
+          showToast('সময় শেষ! উত্তরপত্র স্বয়ংক্রিয়ভাবে জমা নেওয়া হচ্ছে...');
+          finalizeAndGradeExam();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(secondsLeft / 60);
+      const secs = secondsLeft % 60;
+      const str = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      const el = document.getElementById('examTimerDisplay');
+      if (el) el.innerText = str;
+    }
+
+    function renderPalette() {
+      const grid = document.getElementById('questionPaletteGrid');
+      grid.innerHTML = '';
+
+      activeExamQuestions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => jumpToQuestion(idx);
+
+        let bgClass = 'bg-slate-100 text-slate-700 hover:bg-slate-200';
+        if (userAnswers[q.id] !== undefined) {
+          bgClass = 'bg-brand-600 text-white font-black shadow-sm';
+        } else if (flaggedQuestions.has(q.id)) {
+          bgClass = 'bg-amber-400 text-slate-900 font-bold';
+        }
+
+        if (idx === currentQuestionIndex) {
+          bgClass += ' ring-2 ring-brand-700 ring-offset-2';
+        }
+
+        btn.className = `h-9 rounded-xl text-xs font-eng transition ${bgClass}`;
+        btn.innerText = idx + 1;
+        grid.appendChild(btn);
+      });
+
+      // Update answered count
+      const answeredCount = Object.keys(userAnswers).length;
+      document.getElementById('answeredCounter').innerText = `${answeredCount} উত্তরিত`;
+    }
+
+    function renderCurrentQuestion() {
+      if (!activeExamQuestions.length) return;
+      const q = activeExamQuestions[currentQuestionIndex];
+      const total = activeExamQuestions.length;
+
+      // Update counters & progress
+      document.getElementById('activeQuestionBadge').innerText = `প্রশ্ন ${currentQuestionIndex + 1} / ${total}`;
+      document.getElementById('questionTopicTag').innerText = q.topic;
+      document.getElementById('currentQuestionText').innerText = q.q;
+
+      const progress = ((currentQuestionIndex + 1) / total) * 100;
+      document.getElementById('quizProgressBar').style.width = `${progress}%`;
+
+      // Flag button style
+      const isFlagged = flaggedQuestions.has(q.id);
+      const flagBtn = document.getElementById('flagCurrentBtn');
+      const flagText = document.getElementById('flagBtnText');
+      if (isFlagged) {
+        flagBtn.className = 'px-3 py-1.5 rounded-xl bg-amber-400 text-slate-900 text-xs font-black flex items-center gap-1.5 transition';
+        flagText.innerText = 'ফ্ল্যাগ করা হয়েছে';
+      } else {
+        flagBtn.className = 'px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold flex items-center gap-1.5 transition';
+        flagText.innerText = 'রিভিউ ফ্ল্যাগ';
+      }
+
+      // Prev / Next / Submit buttons
+      document.getElementById('prevQBtn').disabled = currentQuestionIndex === 0;
+      document.getElementById('prevQBtn').style.opacity = currentQuestionIndex === 0 ? '0.4' : '1';
+
+      const isLast = currentQuestionIndex === total - 1;
+      document.getElementById('nextQBtn').classList.toggle('hidden', isLast);
+      document.getElementById('submitExamBtn').classList.toggle('hidden', !isLast);
+
+      // Render Options
+      const optionsContainer = document.getElementById('optionsList');
+      optionsContainer.innerHTML = '';
+
+      const letters = ['(ক)', '(খ)', '(গ)', '(ঘ)'];
+      q.options.forEach((opt, oIdx) => {
+        const isSelected = userAnswers[q.id] === oIdx;
+
+        const optDiv = document.createElement('div');
+        optDiv.onclick = () => selectOption(q.id, oIdx);
+        optDiv.className = `p-4 rounded-2xl border-2 cursor-pointer transition flex items-center justify-between text-sm sm:text-base font-semibold ${
+          isSelected 
+            ? 'border-brand-600 bg-brand-50/90 text-brand-950 font-bold shadow-sm' 
+            : 'border-slate-200 bg-white hover:border-slate-300 text-slate-800'
+        }`;
+
+        optDiv.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl ${isSelected ? 'bg-brand-600 text-white font-bold' : 'bg-slate-100 text-slate-600'} flex items-center justify-center text-xs shrink-0">
+              ${letters[oIdx]}
+            </span>
+            <span>${opt}</span>
+          </div>
+          <div class="w-5 h-5 rounded-full border-2 ${isSelected ? 'border-brand-600 bg-brand-600' : 'border-slate-300'} flex items-center justify-center shrink-0">
+            ${isSelected ? '<i class="fa-solid fa-check text-[10px] text-white"></i>' : ''}
+          </div>
+        `;
+        optionsContainer.appendChild(optDiv);
+      });
+
+      renderPalette();
+    }
+
+    function selectOption(qId, optionIndex) {
+      userAnswers[qId] = optionIndex;
+      renderCurrentQuestion();
+    }
+
+    function toggleFlagCurrentQuestion() {
+      const q = activeExamQuestions[currentQuestionIndex];
+      if (flaggedQuestions.has(q.id)) {
+        flaggedQuestions.delete(q.id);
+        showToast('রিভিউ ফ্ল্যাগ সরানো হলো');
+      } else {
+        flaggedQuestions.add(q.id);
+        showToast('প্রশ্নটি পর্যালোচনার জন্য ফ্ল্যাগ করা হলো');
+      }
+      renderCurrentQuestion();
+    }
+
+    function jumpToQuestion(index) {
+      currentQuestionIndex = index;
+      renderCurrentQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < activeExamQuestions.length - 1) {
+        currentQuestionIndex++;
+        renderCurrentQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderCurrentQuestion();
+      }
+    }
+
+    function skipQuestion() {
+      // Clear answer if any
+      const q = activeExamQuestions[currentQuestionIndex];
+      delete userAnswers[q.id];
+      nextQuestion();
+    }
+
+    function confirmSubmitExam() {
+      const total = activeExamQuestions.length;
+      const answered = Object.keys(userAnswers).length;
+      const unanswered = total - answered;
+
+      let msg = `আপনি ${total} টির মধ্যে ${answered} টি প্রশ্নের উত্তর দিয়েছেন। ${unanswered > 0 ? `(${unanswered} টি প্রশ্ন বাকি আছে)` : ''}\n\nআপনি কি নিশ্চিত যে উত্তরপত্র সাবমিট করতে চান?`;
+      if (confirm(msg)) {
+        finalizeAndGradeExam();
+      }
+    }
+
+    // --- 6. EXAM GRADING WITH NEGATIVE MARKING & DETAILED EXPLANATION ENGINE ---
+    function finalizeAndGradeExam() {
+      clearInterval(examTimer);
+      isExamActive = false;
+
+      let correct = 0;
+      let wrong = 0;
+      let skipped = 0;
+
+      activeExamQuestions.forEach(q => {
+        const uAns = userAnswers[q.id];
+        if (uAns === undefined) {
+          skipped++;
+        } else if (uAns === q.ans) {
+          correct++;
+        } else {
+          wrong++;
+        }
+      });
+
+      // NEGATIVE MARKING: -0.25 per wrong answer
+      const negativeMarks = wrong * 0.25;
+      const netScore = Math.max(0, (correct * 1.0) - negativeMarks);
+      const accuracyPercent = Math.round((netScore / activeExamQuestions.length) * 100);
+
+      examResultData = {
+        total: activeExamQuestions.length,
+        correct,
+        wrong,
+        negativeMarks,
+        skipped,
+        netScore: netScore.toFixed(2),
+        accuracyPercent,
+        questions: activeExamQuestions,
+        userAnswers: { ...userAnswers }
+      };
+
+      // Populate Result Screen
+      document.getElementById('finalNetScore').innerText = examResultData.netScore;
+      document.getElementById('finalTotalScoreBase').innerText = `মোট ${examResultData.total} এর মধ্যে`;
+      document.getElementById('accuracyBadge').innerText = `সফলতার হার: ${accuracyPercent}%`;
+
+      document.getElementById('statCorrectCount').innerText = correct;
+      document.getElementById('statWrongCount').innerText = wrong;
+      document.getElementById('statNegativeDeduction').innerText = `-${negativeMarks.toFixed(2)}`;
+      document.getElementById('statSkippedCount').innerText = skipped;
+
+      // Update Filter Pill counts
+      document.getElementById('countAllRev').innerText = examResultData.total;
+      document.getElementById('countWrongRev').innerText = wrong;
+      document.getElementById('countCorrectRev').innerText = correct;
+      document.getElementById('countSkippedRev').innerText = skipped;
+
+      // Result Heading
+      const heading = document.getElementById('resultStatusHeading');
+      if (accuracyPercent >= 80) {
+        heading.innerText = 'অসাধারণ পারফরম্যান্স! আপনার প্রস্তুতি দারুণ!';
+        triggerConfettiCelebration();
+      } else if (accuracyPercent >= 50) {
+        heading.innerText = 'ভালো পরীক্ষা হয়েছে! ভুলের ব্যাখ্যা দেখে নিন।';
+      } else {
+        heading.innerText = 'আরও অনুশীলনের সুযোগ রয়েছে। ভুলের বিশ্লেষণ নিচে দেখুন।';
+      }
+
+      // Switch Screens
+      document.getElementById('activeQuizScreen').classList.add('hidden');
+      document.getElementById('paletteContainer').classList.add('hidden');
+      document.getElementById('resultScreen').classList.remove('hidden');
+
+      const examAction = document.getElementById('examActionBtn');
+      examAction.innerText = 'নতুন টেস্ট শুরু করুন';
+      examAction.disabled = false;
+      examAction.classList.remove('opacity-75');
+
+      // Render Explanations
+      filterResultReviews('all');
+
+      // Scroll smoothly to results
+      document.getElementById('resultScreen').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function triggerConfettiCelebration() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
+
+    // --- 7. DETAILED EXPLANATION & MISTAKE DRILL-DOWN ---
+    function filterResultReviews(filterType) {
+      if (!examResultData) return;
+
+      // Update pill classes
+      const tabs = ['all', 'wrong', 'correct', 'skipped'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`revTab${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        if (btn) {
+          if (t === filterType) {
+            btn.className = 'rev-tab px-3.5 py-1.5 rounded-xl bg-slate-900 text-white transition';
+          } else {
+            btn.className = 'rev-tab px-3.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition';
+          }
+        }
+      });
+
+      const listContainer = document.getElementById('reviewQuestionsList');
+      listContainer.innerHTML = '';
+
+      let filteredQuestions = examResultData.questions.filter(q => {
+        const uAns = examResultData.userAnswers[q.id];
+        if (filterType === 'all') return true;
+        if (filterType === 'wrong') return uAns !== undefined && uAns !== q.ans;
+        if (filterType === 'correct') return uAns === q.ans;
+        if (filterType === 'skipped') return uAns === undefined;
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        listContainer.innerHTML = `
+          <div class="p-8 text-center bg-slate-50 rounded-2xl border border-slate-200">
+            <p class="text-sm font-bold text-slate-600">এই ক্যাটাগরিতে কোনো প্রশ্ন নেই।</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q, idx) => {
+        const uAns = examResultData.userAnswers[q.id];
+        const isCorrect = uAns === q.ans;
+        const isSkipped = uAns === undefined;
+        const isWrong = !isCorrect && !isSkipped;
+
+        const card = document.createElement('div');
+        let cardBorder = 'border-slate-200 bg-white';
+        let statusBadge = '';
+
+        if (isCorrect) {
+          cardBorder = 'border-emerald-300 bg-emerald-50/20';
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-check"></i> সঠিক (+১.০)</span>';
+        } else if (isWrong) {
+          cardBorder = 'border-red-300 bg-red-50/20';
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-red-100 text-red-800 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-xmark"></i> ভুল উত্তর (-০.২৫)</span>';
+        } else {
+          cardBorder = 'border-slate-200 bg-slate-50/50';
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold">স্কিপ করেছেন (০.০)</span>';
+        }
+
+        const letters = ['(ক)', '(খ)', '(গ)', '(ঘ)'];
+        let optionsHtml = '';
+
+        q.options.forEach((opt, oIdx) => {
+          let optStyle = 'border-slate-200 bg-slate-50 text-slate-700';
+          let noteBadge = '';
+
+          if (oIdx === q.ans) {
+            // Correct Answer Indicator
+            optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-950 font-bold';
+            noteBadge = '<span class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded font-bold ml-2">সঠিক উত্তর</span>';
+          } else if (uAns === oIdx && isWrong) {
+            // User's Wrong selection
+            optStyle = 'border-red-500 bg-red-50 text-red-950 font-bold';
+            noteBadge = '<span class="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-bold ml-2">আপনার দেওয়া উত্তর</span>';
+          }
+
+          optionsHtml += `
+            <div class="p-3 rounded-xl border ${optStyle} flex items-center justify-between text-xs sm:text-sm">
+              <div class="flex items-center gap-2">
+                <span class="font-bold">${letters[oIdx]}</span>
+                <span>${opt}</span>
+                ${noteBadge}
+              </div>
+              <div>
+                ${oIdx === q.ans ? '<i class="fa-solid fa-circle-check text-emerald-600"></i>' : (uAns === oIdx && isWrong ? '<i class="fa-solid fa-circle-xmark text-red-600"></i>' : '')}
+              </div>
+            </div>
+          `;
+        });
+
+        card.className = `p-5 sm:p-6 rounded-2xl border-2 ${cardBorder} shadow-sm space-y-4`;
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 text-xs font-bold text-slate-500">
+                <span class="text-brand-700 bg-brand-50 border border-brand-200 px-2 py-0.5 rounded">${q.topic}</span>
+                <span>প্রশ্ন নং #${q.id}</span>
+              </div>
+              <h5 class="text-sm sm:text-base font-bold text-slate-900 leading-snug">${q.q}</h5>
+            </div>
+            <div>
+              ${statusBadge}
+            </div>
+          </div>
+
+          <!-- Options Grid -->
+          <div class="grid sm:grid-cols-2 gap-2 pt-1">
+            ${optionsHtml}
+          </div>
+
+          <!-- Detailed Explanation Box (CRITICAL REQUIREMENT) -->
+          <div class="p-4 rounded-xl bg-amber-50/90 border border-amber-200 text-xs sm:text-sm text-amber-950 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5 font-bold text-amber-900">
+                <i class="fa-solid fa-lightbulb text-amber-600"></i>
+                <span>বিশদ ব্যাখ্যা ও সমাধান:</span>
+              </div>
+              <button onclick="saveSingleMistakeToNotebook(${q.id})" class="text-[11px] font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1">
+                <i class="fa-solid fa-bookmark"></i> ভুল খাতায় রাখুন
+              </button>
+            </div>
+            <p class="leading-relaxed font-normal">${q.explanation}</p>
+            <div class="pt-1 flex items-center gap-1 text-[11px] text-amber-800/90 font-medium">
+              <i class="fa-solid fa-book-open"></i>
+              <span>রেফারেন্স: <strong>${q.bookRef}</strong></span>
+            </div>
+          </div>
+        `;
+
+        listContainer.appendChild(card);
+      });
+    }
+
+    // --- 8. MISTAKE NOTEBOOK ENGINE (Local Storage Persisted) ---
+    function getStoredMistakes() {
+      try {
+        const raw = localStorage.getItem(MISTAKE_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function setStoredMistakes(arr) {
+      localStorage.setItem(MISTAKE_STORAGE_KEY, JSON.stringify(arr));
+      updateMistakeBadge();
+    }
+
+    function saveSingleMistakeToNotebook(qId) {
+      const q = QUESTION_DATABASE.find(item => item.id === qId);
+      if (!q) return;
+
+      const current = getStoredMistakes();
+      if (!current.some(item => item.id === q.id)) {
+        current.push(q);
+        setStoredMistakes(current);
+        renderMistakeNotebook();
+        showToast('প্রশ্নটি আপনার ভুল খাতায় সংরক্ষিত হয়েছে');
+      } else {
+        showToast('প্রশ্নটি ইতিমধ্যে আপনার ভুল খাতায় রয়েছে');
+      }
+    }
+
+    function saveAllMistakesToNotebook() {
+      if (!examResultData) return;
+      const current = getStoredMistakes();
+      let added = 0;
+
+      examResultData.questions.forEach(q => {
+        const uAns = examResultData.userAnswers[q.id];
+        if (uAns !== undefined && uAns !== q.ans) {
+          if (!current.some(item => item.id === q.id)) {
+            current.push(q);
+            added++;
+          }
+        }
+      });
+
+      setStoredMistakes(current);
+      renderMistakeNotebook();
+      showToast(`${added} টি ভুল প্রশ্ন ভুল খাতায় সংরক্ষিত করা হয়েছে!`);
+    }
+
+    function renderMistakeNotebook() {
+      const container = document.getElementById('mistakeContainer');
+      const list = getStoredMistakes();
+      updateMistakeBadge();
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10 space-y-2">
+            <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <h4 class="font-bold text-slate-800 text-base">আপনার ভুল খাতায় কোনো প্রশ্ন জমা নেই!</h4>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+              পরীক্ষা দেওয়ার পর ভুল হওয়া প্রশ্নগুলো এখানে সংরক্ষণ করে শেষ মুহূর্তের রিভিশন সম্পন্ন করুন।
+            </p>
+            <button onclick="scrollToExam()" class="mt-2 text-xs font-bold text-brand-700 hover:underline">
+              এখনই একটি মডেল টেস্ট দিয়ে ট্রাই করুন →
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = '';
+      list.forEach((q, idx) => {
+        const div = document.createElement('div');
+        div.className = 'p-4 sm:p-5 rounded-2xl bg-white border border-amber-200/90 shadow-sm space-y-3';
+        div.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">${q.topic}</span>
+              <h5 class="text-sm sm:text-base font-bold text-slate-900 mt-1">${idx + 1}. ${q.q}</h5>
+            </div>
+            <button onclick="removeMistake(${q.id})" class="text-slate-400 hover:text-red-600 text-xs transition" title="মুছে ফেলুন">
+              <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1">
+            <p class="font-bold text-brand-700">সঠিক উত্তর: ${q.options[q.ans]}</p>
+            <p class="text-slate-600">${q.explanation}</p>
+            <p class="text-[10px] text-slate-400 font-semibold pt-0.5">উৎস: ${q.bookRef}</p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function removeMistake(id) {
+      const list = getStoredMistakes().filter(item => item.id !== id);
+      setStoredMistakes(list);
+      renderMistakeNotebook();
+      showToast('ভুল খাতা থেকে অপসারিত হলো');
+    }
+
+    function clearMistakeNotebook() {
+      if (confirm('আপনি কি নিশ্চিত যে সম্পূর্ণ ভুল খাতা খালি করতে চান?')) {
+        localStorage.removeItem(MISTAKE_STORAGE_KEY);
+        renderMistakeNotebook();
+        showToast('ভুল খাতা সম্পূর্ণ খালি করা হয়েছে');
+      }
+    }
+
+    function updateMistakeBadge() {
+      const list = getStoredMistakes();
+      const badge = document.getElementById('mistakeBadgeCount');
+      if (badge) {
+        if (list.length > 0) {
+          badge.innerText = list.length;
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+      }
+    }
+
+    function testOnlyMistakes() {
+      const list = getStoredMistakes();
+      if (list.length === 0) {
+        alert('আপনার ভুল খাতায় কোনো প্রশ্ন নেই! আগে মডেল টেস্ট দিন।');
+        return;
+      }
+      activeExamQuestions = [...list];
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      flaggedQuestions.clear();
+      isExamActive = true;
+      secondsLeft = activeExamQuestions.length * 60;
+
+      document.getElementById('preTestScreen').classList.add('hidden');
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('activeQuizScreen').classList.remove('hidden');
+      document.getElementById('paletteContainer').classList.remove('hidden');
+
+      document.getElementById('activeExamLabel').innerText = 'ভুল খাতা স্পেশাল রিভিশন টেস্ট';
+
+      renderPalette();
+      renderCurrentQuestion();
+      startTimer();
+      scrollToExam();
+      showToast('ভুল খাতা টেস্ট শুরু হয়েছে!');
+    }
+
+    // --- 9. QUESTION BANK SECTION (5,000+ MCQs EXPLORER) ---
+    let currentBankFilter = 'all';
+
+    function filterBankCategory(cat) {
+      currentBankFilter = cat;
+      const pills = document.querySelectorAll('.bank-pill');
+      pills.forEach(p => {
+        p.className = 'bank-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+      });
+      event.target.className = 'bank-pill px-4 py-2 rounded-xl bg-brand-600 text-white transition';
+      renderBankQuestions();
+    }
+
+    function filterBankQuestions() {
+      renderBankQuestions();
+    }
+
+    function renderBankQuestions() {
+      const container = document.getElementById('bankQuestionsContainer');
+      const search = (document.getElementById('bankSearchInput')?.value || '').toLowerCase();
+
+      let filtered = QUESTION_DATABASE.filter(q => {
+        const matchesSearch = q.q.toLowerCase().includes(search) || 
+                              q.topic.toLowerCase().includes(search) || 
+                              q.explanation.toLowerCase().includes(search);
+        if (!matchesSearch) return false;
+        if (currentBankFilter === 'all') return true;
+        if (currentBankFilter === 'crop' && q.topic.includes('শস্য')) return true;
+        if (currentBankFilter === 'soil' && q.topic.includes('মৃত্তিকা')) return true;
+        if (currentBankFilter === 'pest' && q.topic.includes('বালাই')) return true;
+        if (currentBankFilter === 'policy' && (q.topic.includes('অর্থনীতি') || q.topic.includes('নীতি'))) return true;
+        if (currentBankFilter === 'fisheries' && q.topic.includes('মৎস্য')) return true;
+        return false;
+      });
+
+      container.innerHTML = '';
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-2 text-center py-8 text-slate-500 font-semibold text-sm">
+            কোনো প্রশ্ন খুঁজে পাওয়া যায়নি। অন্য কীওয়ার্ড দিয়ে সন্ধান করুন।
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((q, i) => {
+        const card = document.createElement('div');
+        card.className = 'p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-brand-500/50 transition space-y-3';
+        card.innerHTML = `
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-brand-700 font-bold bg-brand-50 border border-brand-200 px-2 py-0.5 rounded">${q.topic}</span>
+            <span class="text-slate-400 font-semibold">প্রশ্ন #${q.id}</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm leading-snug">${q.q}</h4>
+          
+          <div class="grid grid-cols-2 gap-1.5 text-xs text-slate-700 font-medium pt-1">
+            ${q.options.map((opt, optIdx) => `
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-100 ${optIdx === q.ans ? 'text-brand-800 font-bold bg-brand-50/70 border-brand-200' : ''}">
+                ${optIdx === q.ans ? '✓ ' : ''}${opt}
+              </div>
+            `).join('')}
+          </div>
+
+          <details class="text-xs pt-1">
+            <summary class="cursor-pointer font-bold text-brand-700 hover:underline">
+              প্রামাণ্য ব্যাখ্যা ও বই রেফারেন্স দেখুন
+            </summary>
+            <div class="mt-2 p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-950 space-y-1">
+              <p>${q.explanation}</p>
+              <p class="text-[10px] text-amber-800 font-semibold">রেফারেন্স: ${q.bookRef}</p>
+            </div>
+          </details>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function loadMoreBankQuestions() {
+      showToast('🔄 ক্লাউড সার্ভার থেকে নতুন প্রশ্ন সেট সিন্ক্রোনাইজ করা হয়েছে!');
+    }
+
+    // --- 10. MODAL & MISC INTERACTIVE HANDLERS ---
+    function openBookModal(title, desc) {
+      const modal = document.getElementById('generalModal');
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-book-bookmark"></i>
+          </div>
+          <h3 class="text-xl font-black text-slate-900">${title}</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">${desc}</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs space-y-1.5 border border-slate-200">
+            <p class="font-bold text-slate-800">বইটির বিশেষ সুবিধাসমূহ:</p>
+            <p>✓ পিএসসি ও কৃষি মন্ত্রণালয়ের বিগত সকল নির্ভুল ব্যাখ্যা</p>
+            <p>✓ প্রতিটি ভুল উত্তরের নেগেটিভ প্রভাব সতর্কতা নোট</p>
+            <p>✓ অনলাইন ইন্টারেক্টিভ কুইজ কোড সংযুক্ত</p>
+          </div>
+          <button onclick="closeModal(); scrollToExam();" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow transition">
+            এই বইয়ের প্রশ্ন দিয়ে মডেল টেস্ট দিন
+          </button>
+        </div>
+      `;
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('generalModal').classList.add('hidden');
+    }
+
+    function handleVivaBooking(e) {
+      e.preventDefault();
+      closeModal();
+      showToast('🎉 আপনার মক ভাইভা স্লট সফলভাবে বুকিং সম্পন্ন হয়েছে!');
+      e.target.reset();
+    }
+
+    function triggerAutoRefresh() {
+      showToast('🔄 এগ্রিনেটওয়ার্ক প্রশ্নব্যাংক সফলভাবে আপডেট সম্পন্ন হয়েছে');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      if (toast && toastMsg) {
+        toastMsg.innerText = msg;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3200);
+      }
+    }
+  </script>
+</body>
+</html>
